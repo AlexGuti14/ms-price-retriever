@@ -15,7 +15,7 @@ Microservice that obtains price and rate for articles order by priority.
 
 ## About The Project
 
-Microservice in charge of providing an endpoint rest to obtain the rate and price to be applied to a product.
+Microservice in charge of providing a rest endpoint to obtain the rate and price to be applied to a brand and product.
 
 If two rates coincide in a date range, the one with the higher priority (higher numerical value) is applied.
 
