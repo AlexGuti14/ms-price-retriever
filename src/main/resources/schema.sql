@@ -1,5 +1,4 @@
 DROP TABLE IF EXISTS PRICES;
-DROP TABLE IF EXISTS PRICES;
 DROP TABLE IF EXISTS BRANDS;
 
 CREATE TABLE BRANDS (
@@ -19,3 +18,6 @@ CREATE TABLE PRICES (
     CURRENCY VARCHAR(3) NOT NULL,
     foreign key (BRAND_ID) references BRANDS(ID)
 );
+
+CREATE INDEX idx_brand_product_start_end
+ON PRICES (brand_id, product_id, start_date, end_date, priority DESC);
