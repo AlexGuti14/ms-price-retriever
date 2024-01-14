@@ -106,11 +106,11 @@ addition, it supports the principle of dependency inversion.
    ```sh
    docker run -p 8080:8080 ms-price-retriever
    ```
-4. Execute the application
+4. Execute endpoint
     ```sh
    curl -X GET "http://localhost:8080/api/v1.0/prices?brandId=1&productId=35455&date=2020-06-14-12.20.42"
    ```
-5. Run test case
+5. Run test
     ```sh
    ./gradlew test
    ```
@@ -119,7 +119,7 @@ addition, it supports the principle of dependency inversion.
 
 OpenAPI documentation in json format: [OpenAPI](http://localhost:8080/v3/api-docs)
 
-Click here tom download in .yaml format: [api-docs.yaml](http://localhost:8080/v3/api-docs.yaml)
+Click here to download OpenAPI documentation in .yaml format: [api-docs.yaml](http://localhost:8080/v3/api-docs.yaml)
 
 Swagger documentation: [Swagger](http://localhost:8080/swagger-ui/index.html#/)
 
