@@ -83,6 +83,7 @@ addition, it supports the principle of dependency inversion.
 - JUnit 5
 - Mockito
 - H2
+- OpenAPI
 
 ## Getting Started
 
