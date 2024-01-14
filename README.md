@@ -1,7 +1,7 @@
 # ms-price-retriever
 
 ***
-Microservice that obtains price and rate for articles.
+Microservice that obtains price and rate for articles order by priority.
 
 ## Table of Contents
 
@@ -25,10 +25,6 @@ If two rates coincide in a date range, the one with the higher priority (higher 
 - product identifier
 - application date
 
-#### Example
-
-http://localhost:8080/api/v1.0/prices?brandId=1&productId=35455&date=2020-06-14-12.20.42
-
 ### Output parameters
 
 - brand identifier
@@ -45,12 +41,9 @@ The previous name curr has been updated to currency because it is a more specifi
 
 In addition, the original price_list attribute has been changed to rate because it is a more specific name.
 
-### Improvements
-
-- Currently, if few rates have the same priority it returns the first price found.
-  A possible business improvement would be to sort by priority and also by rate or lowest price.
-
 #### Example
+
+http://localhost:8080/api/v1.0/prices?brandId=1&productId=35455&date=2020-06-14-12.20.42
 
 ```json
 {
@@ -63,6 +56,12 @@ In addition, the original price_list attribute has been changed to rate because 
    "currency": "EUR"
 }
 ```
+
+### Improvements
+
+- Currently, if few rates have the same priority it returns the first price found.
+  A possible business improvement would be to sort by priority and also by rate or lowest price.
+
 
 ## Architecture
 
