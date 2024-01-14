@@ -45,6 +45,11 @@ The previous name curr has been updated to currency because it is a more specifi
 
 In addition, the original price_list attribute has been changed to rate because it is a more specific name.
 
+### Improvements
+
+- Currently, if few rates have the same priority it returns the first price found.
+  A possible business improvement would be to sort by priority and also by rate or lowest price.
+
 #### Example
 
 ```json
@@ -115,6 +120,8 @@ addition, it supports the principle of dependency inversion.
    ./gradlew test
    ```
 
+If you want to access the H2 database console: [H2 console](http://localhost:8080/h2-console)
+
 ## Documentation
 
 OpenAPI documentation in json format: [OpenAPI](http://localhost:8080/v3/api-docs)
@@ -127,7 +134,7 @@ Swagger documentation: [Swagger](http://localhost:8080/swagger-ui/index.html#/)
 
 Alejandro Gutierrez - [LinkedIn](https://www.linkedin.com/in/agutierrezbolea/)
 
-ms-price-retriever: [GitHub](https://github.com/AlexGuti14/ms-price-retriever)
+ms-price-retriever project: [GitHub](https://github.com/AlexGuti14/ms-price-retriever)
 
 ## License
 
