@@ -11,6 +11,7 @@ Microservice that obtains price and rate for articles.
 3. [Getting Started](#getting-started)
 4. [Documentation](#documentation)
 5. [Contact](#contact)
+6. [License](#license)
 
 ## About The Project
 
