@@ -10,6 +10,8 @@ public class PriceMock {
     public static final int BRAND_ID = 1;
     public static final String PRODUCT_ID = "35455";
     public static final String PRODUCT_ID_NOT_FOUND = "15455";
+    public static final int PRIORITY = 1;
+    public static final int RATE = 2;
     public static final LocalDateTime DATE_TEST_1 = LocalDateTime.parse("2020-06-14T10:00:00");
     public static final LocalDateTime DATE_TEST_2 = LocalDateTime.parse("2020-06-14T16:00:00");
     public static final LocalDateTime DATE_TEST_3 = LocalDateTime.parse("2020-06-14T21:00:00");
@@ -26,9 +28,9 @@ public class PriceMock {
                 BRAND_ID,
                 LocalDateTime.parse("2020-06-14T00:00:00"),
                 LocalDateTime.parse("2020-12-31T23:59:59"),
-                1,
+                RATE,
                 PRODUCT_ID,
-                1,
+                PRIORITY,
                 PRICE_TEST_1,
                 CURRENCY);
     }
