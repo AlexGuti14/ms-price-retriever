@@ -1,4 +1,4 @@
-package com.ecommerce.mspriceretriever.PriceMock;
+package com.ecommerce.mspriceretriever.mock;
 
 import com.ecommerce.mspriceretriever.dto.PriceDTO;
 import com.ecommerce.mspriceretriever.entity.Price;
