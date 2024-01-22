@@ -1,9 +1,9 @@
 package com.ecommerce.mspriceretriever.domain;
 
-import lombok.Data;
+import lombok.Value;
 
-@Data
+@Value
 public class Error {
 
-    private final String message;
+    String message;
 }

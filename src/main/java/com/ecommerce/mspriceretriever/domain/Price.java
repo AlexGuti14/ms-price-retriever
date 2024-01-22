@@ -1,21 +1,21 @@
 package com.ecommerce.mspriceretriever.domain;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Value;
 
 import java.time.LocalDateTime;
 
-@Data
+@Value
 @AllArgsConstructor
-@NoArgsConstructor
+@NoArgsConstructor(force = true)
 public class Price {
 
-    private int brandId;
-    private LocalDateTime startDate;
-    private LocalDateTime endDate;
-    private int rate;
-    private String productId;
-    private double price;
-    private String currency;
+    int brandId;
+    LocalDateTime startDate;
+    LocalDateTime endDate;
+    int rate;
+    String productId;
+    double price;
+    String currency;
 }
