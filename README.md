@@ -120,6 +120,7 @@ facilitates test automation.
     ```sh
    ./gradlew test
    ```
+6. Open /build/reports/jacoco/test/html/index.html page to see the generated report
 
 If you want to access the H2 database console: [H2 console](http://localhost:8080/h2-console)
 
