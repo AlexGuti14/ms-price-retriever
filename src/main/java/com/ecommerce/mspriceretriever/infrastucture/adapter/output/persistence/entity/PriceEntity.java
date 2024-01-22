@@ -5,13 +5,13 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Value;
 
 import java.time.LocalDateTime;
 
 @Entity(name = "PRICES")
-@Getter
+@Value
 @AllArgsConstructor
 @NoArgsConstructor(force = true)
 public class PriceEntity {

@@ -1,14 +1,14 @@
 package com.ecommerce.mspriceretriever.domain;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Value;
 
 import java.time.LocalDateTime;
 
-@Getter
-@AllArgsConstructor
+@Value
 @NoArgsConstructor(force = true)
+@AllArgsConstructor
 public class Price {
 
     int brandId;
