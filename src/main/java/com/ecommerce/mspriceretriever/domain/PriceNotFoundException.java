@@ -1,4 +1,4 @@
-package com.ecommerce.mspriceretriever.exception;
+package com.ecommerce.mspriceretriever.domain;
 
 import static java.lang.String.format;
 

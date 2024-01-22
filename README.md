@@ -65,15 +65,16 @@ http://localhost:8080/api/v1.0/prices?brandId=1&productId=35455&date=2020-06-14-
 
 ## Architecture
 
-A three-layer architecture has been used. This architecture is a commonly used approach in software development to
-separate responsibilities and organise code in a modular and maintainable way.
+A hexagonal architecture, or ports and adapters architecture, has been used. This architecture is an architectural
+pattern used in software design. It aims at creating loosely coupled application components that can be easily connected
+to their software environment by means of ports and adapters. This makes components exchangeable at any level and
+facilitates test automation.
 
-The Controller layer, is solely responsible for exposing the functionality so that it can be consumed by external
-entities. The Repository layer, is responsible for storing and retrieving some set of data. The Service layer is where
-all the business logic should go.
-
-This architecture promotes separation of concerns and facilitates modularity, code reuse and maintainability. In
-addition, it supports the principle of dependency inversion.
+- Modularity: Allows components to be changed without affecting other aspects of the system.
+- Maintenance: The layers are independent, facilitating the maintenance and evolution of the system.
+- Simplified Testing: The separation of layers facilitates unit and integration testing.
+- Technological Flexibility: Allows changing technologies and frameworks in the external layers without affecting the
+  core.
 
 ## Technologies
 
@@ -119,16 +120,19 @@ addition, it supports the principle of dependency inversion.
     ```sh
    ./gradlew test
    ```
+6. Open /build/reports/jacoco/test/html/index.html page to see the generated report
 
 If you want to access the H2 database console: [H2 console](http://localhost:8080/h2-console)
 
 ## Documentation
 
-OpenAPI documentation in json format: [OpenAPI](http://localhost:8080/v3/api-docs)
+When the application is running you can access the documentation:
+
+- OpenAPI documentation in json format: [OpenAPI](http://localhost:8080/v3/api-docs)
 
 Click here to download OpenAPI documentation in .yaml format: [api-docs.yaml](http://localhost:8080/v3/api-docs.yaml)
 
-Swagger documentation: [Swagger](http://localhost:8080/swagger-ui/index.html#/)
+- Swagger documentation: [Swagger](http://localhost:8080/swagger-ui/index.html#/)
 
 ## Contact
 

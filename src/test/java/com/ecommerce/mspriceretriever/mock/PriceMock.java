@@ -1,7 +1,7 @@
 package com.ecommerce.mspriceretriever.mock;
 
-import com.ecommerce.mspriceretriever.dto.PriceDTO;
-import com.ecommerce.mspriceretriever.entity.Price;
+import com.ecommerce.mspriceretriever.domain.Price;
+import com.ecommerce.mspriceretriever.infrastucture.adapter.output.persistence.entity.PriceEntity;
 
 import java.time.LocalDateTime;
 
@@ -23,8 +23,8 @@ public class PriceMock {
     public static final double PRICE_TEST_5 = 38.95;
     public static final String CURRENCY = "EUR";
 
-    public static Price getPrice() {
-        return new Price(1L,
+    public static PriceEntity getPriceEntity() {
+        return new PriceEntity(1L,
                 BRAND_ID,
                 LocalDateTime.parse("2020-06-14T00:00:00"),
                 LocalDateTime.parse("2020-12-31T23:59:59"),
@@ -35,12 +35,18 @@ public class PriceMock {
                 CURRENCY);
     }
 
-    public static PriceDTO getPriceDTO() {
-        return new PriceDTO(getPrice());
+    public static Price getPrice() {
+        return new Price(BRAND_ID,
+                LocalDateTime.parse("2020-06-14T00:00:00"),
+                LocalDateTime.parse("2020-12-31T23:59:59"),
+                RATE,
+                PRODUCT_ID,
+                PRICE_TEST_1,
+                CURRENCY);
     }
 
-    public static PriceDTO getExpectedPriceDTO(final LocalDateTime startDate, final LocalDateTime endDate,
-                                               final int rate, final double price) {
-        return new PriceDTO(BRAND_ID, startDate, endDate, rate, PRODUCT_ID, price, CURRENCY);
+    public static Price getExpectedPrice(final LocalDateTime startDate, final LocalDateTime endDate,
+                                         final int rate, final double price) {
+        return new Price(BRAND_ID, startDate, endDate, rate, PRODUCT_ID, price, CURRENCY);
     }
 }
