@@ -1,7 +1,7 @@
-package com.ecommerce.mspriceretriever.controller;
+package com.ecommerce.mspriceretriever.infrastucture.adapter.input.rest;
 
-import com.ecommerce.mspriceretriever.dto.PriceDTO;
-import com.ecommerce.mspriceretriever.service.PriceService;
+import com.ecommerce.mspriceretriever.application.usecase.GetPriceUseCase;
+import com.ecommerce.mspriceretriever.domain.Price;
 import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
@@ -17,14 +17,14 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 public class PriceController {
 
-    private final PriceService priceService;
+    private final GetPriceUseCase getPriceUseCase;
 
     @GetMapping
-    ResponseEntity<PriceDTO> getCurrentPriceByBrandIdAndProductId(
+    public ResponseEntity<Price> getCurrentPriceByBrandIdAndProductId(
             @RequestParam("brandId") final int brandId,
             @RequestParam("productId") final String productId,
             @RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd-HH.mm.ss") final LocalDateTime date) {
 
-        return ResponseEntity.ok(priceService.getCurrentPriceByBrandIdAndProductId(brandId, productId, date));
+        return ResponseEntity.ok(getPriceUseCase.getCurrentPriceByBrandIdAndProductId(brandId, productId, date));
     }
 }

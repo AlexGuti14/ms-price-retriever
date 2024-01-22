@@ -1,8 +1,8 @@
-package com.ecommerce.mspriceretriever.controller;
+package com.ecommerce.mspriceretriever.infrastucture.adapter.input.rest;
 
-import com.ecommerce.mspriceretriever.dto.PriceDTO;
-import com.ecommerce.mspriceretriever.exception.PriceNotFoundException;
-import com.ecommerce.mspriceretriever.service.PriceService;
+import com.ecommerce.mspriceretriever.application.usecase.GetPriceUseCase;
+import com.ecommerce.mspriceretriever.domain.Price;
+import com.ecommerce.mspriceretriever.domain.PriceNotFoundException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -21,28 +21,28 @@ import static org.mockito.Mockito.*;
 class PriceControllerTest {
 
     @Mock
-    private PriceService priceService;
+    private GetPriceUseCase getPriceUseCase;
 
     @InjectMocks
     private PriceController priceController;
 
     @Test
     void testGetCurrentPriceByBrandIdAndProductId() {
-        final PriceDTO priceDTO = getPriceDTO();
-        doReturn(priceDTO).when(priceService).getCurrentPriceByBrandIdAndProductId(BRAND_ID, PRODUCT_ID, DATE_TEST_1);
+        final Price price = getPrice();
+        doReturn(price).when(getPriceUseCase).getCurrentPriceByBrandIdAndProductId(BRAND_ID, PRODUCT_ID, DATE_TEST_1);
 
-        final ResponseEntity<PriceDTO> priceResponse = priceController.getCurrentPriceByBrandIdAndProductId(BRAND_ID, PRODUCT_ID, DATE_TEST_1);
+        final ResponseEntity<Price> priceResponse = priceController.getCurrentPriceByBrandIdAndProductId(BRAND_ID, PRODUCT_ID, DATE_TEST_1);
 
         assertThat(priceResponse).isNotNull();
         assertEquals(HttpStatus.OK, priceResponse.getStatusCode());
         assertThat(priceResponse.getBody()).isNotNull();
-        assertEquals(ResponseEntity.ok(priceDTO), priceResponse);
-        verify(priceService).getCurrentPriceByBrandIdAndProductId(BRAND_ID, PRODUCT_ID, DATE_TEST_1);
+        assertEquals(ResponseEntity.ok(price), priceResponse);
+        verify(getPriceUseCase).getCurrentPriceByBrandIdAndProductId(BRAND_ID, PRODUCT_ID, DATE_TEST_1);
     }
 
     @Test
     void testGetCurrentPriceByBrandIdAndProductIdNotFound() {
-        doThrow(new PriceNotFoundException("Price not found")).when(priceService)
+        doThrow(new PriceNotFoundException("Price not found")).when(getPriceUseCase)
                 .getCurrentPriceByBrandIdAndProductId(BRAND_ID, PRODUCT_ID_NOT_FOUND, DATE_TEST_1);
 
         final PriceNotFoundException error = assertThrows(PriceNotFoundException.class, () ->
@@ -50,6 +50,6 @@ class PriceControllerTest {
 
         assertThat(error).isNotNull();
         assertThat(error.getMessage()).contains("Price not found");
-        verify(priceService).getCurrentPriceByBrandIdAndProductId(BRAND_ID, PRODUCT_ID_NOT_FOUND, DATE_TEST_1);
+        verify(getPriceUseCase).getCurrentPriceByBrandIdAndProductId(BRAND_ID, PRODUCT_ID_NOT_FOUND, DATE_TEST_1);
     }
 }

@@ -1,13 +1,13 @@
-package com.ecommerce.mspriceretriever.repository;
+package com.ecommerce.mspriceretriever.infrastucture.adapter.output.persistence.repository;
 
-import com.ecommerce.mspriceretriever.entity.Price;
+import com.ecommerce.mspriceretriever.infrastucture.adapter.output.persistence.entity.PriceEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
 
-public interface PriceRepository extends JpaRepository<Price, Long> {
+public interface SpringJpaH2PriceRepository extends JpaRepository<PriceEntity, Long> {
 
     @Query("""
             select  p
@@ -16,5 +16,5 @@ public interface PriceRepository extends JpaRepository<Price, Long> {
             order by p.priority DESC
             LIMIT 1
             """)
-    Optional<Price> findCurrentPriceByBrandIdAndProductId(final int brandId, final String productId, final LocalDateTime date);
+    Optional<PriceEntity> findCurrentPriceByBrandIdAndProductId(final int brandId, final String productId, final LocalDateTime date);
 }

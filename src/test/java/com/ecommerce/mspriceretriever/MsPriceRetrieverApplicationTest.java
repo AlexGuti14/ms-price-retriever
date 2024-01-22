@@ -10,12 +10,12 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @SpringBootTest
 class MsPriceRetrieverApplicationTest {
 
-	@Autowired
-	ApplicationContext applicationContext;
+    @Autowired
+    ApplicationContext applicationContext;
 
-	@Test
-	void contextLoads() {
-		assertNotNull(applicationContext);
-	}
+    @Test
+    void contextLoads() {
+        assertNotNull(applicationContext);
+    }
 
 }
